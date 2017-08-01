@@ -1,0 +1,124 @@
+/**
+ * TCSS 305 - SPRING 2016
+ * Assignment 4 - SnapShop
+ */
+
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension; 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+/**
+ * This class contains the implementation of the graphical user interface.
+ * 
+ * @author John Chang
+ * @version 28 April 2016
+ */
+public class SnapShopGUI extends JFrame implements ActionListener{
+    
+    /** Generated serial number UID for object serialization. */
+    private static final long serialVersionUID = -869941063501286082L;
+
+    /** The size of the JFrame. */
+    private static final Dimension FRAME_SIZE = new Dimension(400, 400);
+    
+    /** The number of rows in south panel. */
+    private static final int SOUTH_ROW = 3;
+    
+    /** The number of rows in north panel. */
+    private static final int NORTH_ROW = 7;
+    
+    /** The file chooser. */
+    private final JFileChooser myChooseFile;
+    
+    /**
+     * Calls to the super constructor to instantiate a JFrame.
+     */
+    public SnapShopGUI() {
+        super("TCSS 305 SnapShop");
+        myChooseFile = new JFileChooser();
+    }
+
+    
+  @Override 
+    public void actionPerformed(ActionEvent theEvent) {
+      
+        
+    }
+
+    /**
+     * 
+     */
+    public void start() {
+        
+        setSize(FRAME_SIZE);
+        setLocationRelativeTo(null);
+        
+        final JPanel fullPanel = new JPanel();
+        
+        
+        
+        
+        fullPanel.setLayout(new BorderLayout());
+        
+        
+        
+        
+        
+        
+        
+        fullPanel.add(getTopButtons(), BorderLayout.NORTH);
+        fullPanel.add(getBottomButtons(), BorderLayout.SOUTH);
+        //javax.swing.JOptionPane.showMessageDialog(null, "SnapShop placeholder");
+        add(fullPanel, BorderLayout.WEST);
+        
+        pack();
+        setVisible(true);
+    }
+    
+    private JPanel getTopButtons() {
+        final JPanel northPanel = new JPanel();
+        northPanel.setLayout(new GridLayout(NORTH_ROW, 1));
+        
+        final JButton b1 = new JButton("Edge Detect");
+        final JButton b2 = new JButton("Edge Highlight");
+        final JButton b3 = new JButton("Flip Horizontal");
+        final JButton b4 = new JButton("Flip Vertical");
+        final JButton b5 = new JButton("Grayscale");
+        final JButton b6 = new JButton("Sharpen");
+        final JButton b7 = new JButton("Soften");
+        
+        northPanel.add(b1);
+        northPanel.add(b2);
+        northPanel.add(b3);
+        northPanel.add(b4);
+        northPanel.add(b5);
+        northPanel.add(b6);
+        northPanel.add(b7);
+        return northPanel;
+    }
+    private JPanel getBottomButtons() {
+        final JPanel southPanel = new JPanel();
+        southPanel.setLayout(new GridLayout(SOUTH_ROW, 1));
+        
+        final JButton b8 = new JButton("Open...");
+        final JButton b9 = new JButton("Save As...");
+        final JButton b10 = new JButton("Close Image");
+        
+        southPanel.add(b8);
+        southPanel.add(b9);
+        southPanel.add(b10);
+        
+        return southPanel;
+    }
+}
